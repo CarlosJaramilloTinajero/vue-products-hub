@@ -1,0 +1,498 @@
+.contenedorSearch {
+    max-width: 1400px;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: transparent;
+}
+
+.hr-title {
+    color: rgba(0, 0, 0, 0.45);
+    opacity: 1;
+    margin-bottom: 0;
+}
+
+.tituloSearch {
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 27px;
+    width: max-content;
+    margin: 20px auto;
+
+}
+
+.contenedorSearch .childs {
+    /* display: flex; */
+    margin: 20px auto;
+}
+
+.contenedorSearch .childs .child {
+    margin: 9px auto;
+    width: 100%;
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.185);
+    transition: box-shadow .3s ease-in-out;
+}
+
+.contenedorSearch .childs .child:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.contenedorSearch .childs .child .title-div {
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 0;
+    background-color: rgba(255, 101, 30, 0.1);
+    text-align: center;
+}
+
+.contenedorSearch .childs .child .title-div p {
+    color: rgba(150, 48, 0, 0.9);
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contenedorSearch .childs .child .imagen {
+    width: 100%;
+    height: 240px;
+    background-color: white;
+}
+
+.contenedorSearch .childs .child .imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contenedorSearch .childs .child .relations {
+    padding-top: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    transition: top .5s ease-in-out;
+}
+
+.contenedorSearch .childs .child:hover .relations {
+    top: 15%;
+}
+
+.contenedorSearch .childs .child .relations a {
+    text-decoration: none;
+    color: rgba(186, 59, 0, 0.952);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding-left: 5px;
+    /* padding-top: 15px; */
+}
+
+.contenedorSearch .childs .child .relations a:hover {
+    color: rgba(245, 77, 0, 0.952);
+}
+
+.contenedorSearch .quicks-search {
+    display: flex;
+    margin-bottom: 20px;
+    /* margin-left: 10px; */
+}
+
+.contenedorSearch .quick-search {
+    display: flex;
+    width: 210px;
+    height: 65px;
+    min-width: 170px;
+    min-height: 50px;
+    margin: 10px 0;
+    margin-right: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 0 5px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.4);
+    transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
+    position: relative;
+}
+
+.contenedorSearch .quick-search .quick-search-selected {
+    border: 3px rgba(248, 78, 0, 0.952) solid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.contenedorSearch .quick-search:hover .quick-search-selected {
+    display: block;
+}
+
+.contenedorSearch .quick-search:hover {
+    box-shadow: -7px 7px 5px rgba(0, 0, 0, 0.4);
+    transform: translate(4px, -4px);
+}
+
+
+.contenedorSearch .quick-search:last-child {
+    margin-right: 0px;
+}
+
+.contenedorSearch .quick-search picture {
+    height: 100%;
+    width: 30%;
+    border-right: 1px rgba(0, 0, 0, 0.2) solid;
+    padding: 5px;
+}
+
+.contenedorSearch .quick-search picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contenedorSearch .quick-search .name-quick-search {
+    width: 70%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.contenedorSearch .quick-search .name-quick-search p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    /* font-family: 'Plus Jakarta Sans', sans-serif; */
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+.filter {
+    width: 100%;
+    padding: 5px 5px;
+    padding-left: 0;
+    margin-top: 30px;
+}
+
+.filter .name-filter {
+    display: flex;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    position: relative;
+    border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+.filter .name-filter p {
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.95);
+    font-family: 'Roboto Flex', sans-serif;
+    margin-bottom: 0;
+}
+
+.filter .body-filter {
+    width: 100%;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.filter .body-filter.with-out-overflow-y {
+    overflow-y: unset;
+}
+
+.filter .body-filter .parents {
+    margin: 15px 0;
+    padding: 0 0 0 0;
+    border-left: 1px rgba(0, 0, 0, 0.3) solid;
+    margin-left: 11px;
+}
+
+.filter .body-filter .parents .parent {
+    cursor: pointer;
+    padding-left: 19px;
+    position: relative;
+    margin: 11px 0;
+}
+
+.filter .body-filter .parents .parent:last-child {
+    margin-bottom: 0;
+}
+
+.filter .body-filter .parents .parent .to-back {
+    position: absolute;
+    background-color: rgb(243, 243, 243);
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    top: 0;
+    left: -11px;
+}
+
+.filter .body-filter .parents .parent .to-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-top: -7px;
+}
+
+.filter .body-filter .parents .parent p {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Roboto Flex', sans-serif;
+    margin-bottom: 0;
+}
+
+.filter .body-filter .parents .parent p a {
+    color: rgba(0, 0, 0, 0.95);
+    text-decoration: unset !important;
+}
+
+.filter .body-filter .parents .parent .to-back.current-page {
+    /* border: 1px rgba(186, 59, 0, 0.952) solid; */
+    border: 1px rgba(0, 19, 31, 0.9) solid;
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 0; */
+}
+
+.filter .body-filter .parents .parent .to-back.current-page .circle-tag {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    /* background-color: rgba(186, 59, 0, 0.952); bb*/
+    background-color: rgba(0, 19, 31, 0.9);
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.filter .body-filter .form-check input {
+    border-radius: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.filter .body-filter .form-check label {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.85);
+    /* font-family: 'Roboto Flex', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+}
+
+.filter .body-filter .families {
+    width: 100%;
+    padding-left: 30px;
+    margin-top: 10px;
+}
+
+.filter .body-filter .families .family {
+    margin: 10px 0;
+}
+
+.filter .body-filter .families .family:last-child {
+    margin-bottom: 0;
+}
+
+.filter .body-filter .families .family a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-family: 'Roboto Flex', sans-serif;
+    cursor: pointer;
+
+}
+
+.filter .body-filter .families .family a:hover {
+    color: rgba(255, 81, 0, 1);
+}
+
+.contenedorSearch .data-depatament {
+    text-align: center;
+    margin: 30px auto;
+    margin-bottom: 40px;
+    width: 98%;
+}
+
+.contenedorSearch .data-depatament strong {
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+.contenedorSearch .data-depatament .title-data {
+    font-size: 28px;
+    font-family: 'Roboto Flex', sans-serif;
+    color: rgba(0, 0, 0, 1);
+}
+
+.contenedorSearch .data-depatament .desc-data {
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+    color: rgba(0, 0, 0, 0.98);
+    line-height: 1.1;
+}
+
+.contenedorSearch .data-depatament.footer-data {
+    text-align: left;
+    margin: 60px auto;
+    width: 98%;
+}
+
+.contenedorSearch .data-depatament.footer-data .title-data {
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    margin: 18px 0;
+    color: rgba(0, 0, 0, 1);
+}
+
+.contenedorSearch .data-depatament.footer-data .desc-data {
+    font-size: 13px;
+    line-height: 1;
+    font-family: 'Nunito', sans-serif;
+    color: rgba(0, 0, 0, 0.98);
+}
+
+.contenedorSearch .banner-departament {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    margin: 8px 0;
+    position: relative;
+}
+
+.contenedorSearch .banner-departament img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contenedorSearch .on-render-products-catalogue-loanding {
+    display: flex;
+}
+
+.contenedorSearch .on-render-products-catalogue {
+    display: none;
+}
+
+.contenedorSearch .on-render-products-catalogue-loanding-d-block {
+    display: block;
+}
+
+.contenedorSearch .on-render-products-catalogue-d-block {
+    display: none;
+}
+
+.contenedorSearch .loanding-animation {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 100;
+}
+
+.contenedorSearch .loanding-animation::before {
+    content: "";
+    position: absolute;
+    z-index: 101;
+    width: 3%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+    top: 0;
+    left: -3%;
+    animation: loanding 1.2s linear infinite;
+}
+
+
+@keyframes loanding {
+
+    0% {
+        left: -3%;
+        opacity: 1;
+    }
+
+
+    /* 40% {
+        opacity: .4;
+    } */
+
+    50% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    99% {
+        left: -3%;
+        opacity: .01;
+    }
+
+}
+
+.contenedorSearch .products-cont p {
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    margin-top: 13px;
+    margin-right: 13px;
+}
+
+.contenedorSearch .form-select {
+    border-radius: 1px !important;
+    font-family: 'Roboto Flex', sans-serif;
+    /* font-weight: 300; */
+}
+
+.contenedorSearch .filtesr-movil {
+    background-color: rgba(0, 0, 0, 0.05);
+    height: max-content;
+    display: flex;
+    grid-gap: 25px;
+    width: 88vw;
+    margin: 20px auto;
+    margin-top: 0;
+    padding: 8px;
+}
+
+.contenedorSearch .filtesr-movil .filter-by-container {
+    border: 1px rgba(0, 0, 0, 0.03) solid;
+}
+
+.contenedorSearch .filtesr-movil .filters-toggle {
+    border: 1px rgba(0, 0, 0, 0.03) solid;
+    background-color: white;
+    border-radius: 2px;
+    padding: 7px 10px;
+    height: max-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto Flex', sans-serif;
+    cursor: pointer;
+}
+
+.contenedorSearch .filtesr-movil .filters-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.filter-movil-toggle {
+    overflow-y: scroll;
+    padding: 0px 20px;
+    padding-bottom: 30px;
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    transition: left .3s ease-in-out;
+    background-color: white;
+    z-index: 1000;
+}

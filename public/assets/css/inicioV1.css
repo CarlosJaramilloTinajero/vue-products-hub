@@ -1,0 +1,678 @@
+/* 
+font-family: 'Nunito', sans-serif;
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Flex', sans-serif;
+*/
+.my-slider-progress {
+    position: absolute;
+    background: #ccc;
+    width: 100%;
+    height: 2px;
+    top: -10px;
+    left: 0;
+    /* bottom: 100%; */
+    /* top */
+}
+
+.my-slider-progress-bar {
+    /* background: greenyellow; */
+    /* background: linear-gradient(78deg, rgba(241, 76, 0, 1) 35%, rgba(255, 132, 0, 1) 72%); */
+    background: linear-gradient(78deg, rgba(0, 93, 151, 0.9) 35%, rgba(0, 157, 255, 0.9) 72%);
+    height: 2px;
+    transition: width 400ms ease;
+    width: 0;
+}
+
+.backGroundBlock {
+    background-color: white;
+}
+
+.suscriptionDiv {
+    margin: 0 auto;
+    margin-top: 10px;
+    max-width: 1200px;
+    height: auto;
+    max-height: 350px;
+    /* width: 100%; */
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.suscriptionDiv picture {
+    width: 100%;
+    height: 100%;
+}
+
+.suscriptionDiv picture img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: contain;
+}
+
+.suscriptionDiv .divForm {
+    position: absolute;
+    width: 40%;
+    top: 50%;
+    left: 6%;
+    transform: translate(0, -50%);
+}
+
+.suscriptionDiv .divForm .tituloFom {
+    font-size: 20px;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+.suscriptionDiv .divForm input {
+    padding: 13px;
+    font-size: 15px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    width: 100%;
+    min-width: 100px;
+}
+
+.suscriptionDiv .divForm input:focus {
+    outline: none;
+    border: none;
+}
+
+.btnSuscription:hover {
+    scale: 1.05;
+}
+
+.btnSuscription {
+    cursor: pointer;
+    transition: scale .4s ease-in-out;
+    border: none;
+    position: relative;
+    height: 50px;
+    width: 60%;
+    overflow: hidden;
+    /* background-image: radial-gradient(circle at 12.5% 12.5%, #ec73e7 0, #d665e0 25%, #be55d8 50%, #a446d0 75%, #8b3aca 100%); */
+    /* background-image: radial-gradient(circle at 12.5% 12.5%, rgba(229, 123, 24) 0, rgb(229, 58, 24) 25%, rgba(229, 123, 24) 50%, rgb(229, 58, 24) 75%, rgba(229, 123, 24) 100%); */
+    /* background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(247, 87, 0, 1) 0%, rgba(249, 0, 0, 1) 90.1%); */
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 7, 7, 1) 0%, rgba(255, 41, 41, 1) 100.7%);
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.btnSuscription:hover::before {
+    width: 100%;
+}
+
+.btnSuscription::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    transition: width 1s ease-in-out;
+}
+
+.btnSuscription span {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    transform: translate(-50%, -50%);
+}
+
+
+.bannerSection {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    /* height: 230px; */
+}
+
+.bannerSection .bannerDown-G {
+    width: 64%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.bannerSection .bannerDown-C {
+    width: 34%;
+    height: 20%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.nosotrosDiv {
+    margin: 0 auto;
+    margin-top: 10px;
+    height: auto;
+}
+
+.nosotrosDiv .row {
+    width: 100%;
+    height: auto;
+}
+
+.sectionNosotro:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+}
+
+.sectionNosotro {
+    cursor: pointer;
+    transition: box-shadow .3s ease-in-out;
+    max-width: 220px;
+    max-height: 240px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 24% 5%;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.datosNosotros {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.datosNosotros .texto {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.datosNosotros .texto p {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.datosNosotros picture {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.datosNosotros picture img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes svgArrow {
+    0% {
+        margin-right: 0;
+    }
+
+    33% {
+        margin-right: -100%;
+        opacity: 0;
+    }
+
+    66% {
+        margin-right: 100%;
+        opacity: 0;
+    }
+
+
+    100% {
+        opacity: 1;
+        margin-right: 0;
+    }
+}
+
+.splide .splide__arrows .splide__arrow--next:hover svg,
+.splide .splide__arrows .splide__arrow--prev:hover svg {
+    animation: svgArrow 1s;
+}
+
+.splide .splide__arrows .splide__arrow--prev {
+    /* top: -30px; */
+    top: 93%;
+    left: 100%;
+    position: absolute;
+    transform: rotate(180deg);
+    translate: -104px -50%;
+}
+
+.splide .splide__arrows .splide__arrow--next {
+    /* top: -30px; */
+    top: 93%;
+    right: 0;
+    position: absolute;
+}
+
+.splide .splide__arrows .splide__arrow--prev svg,
+.splide .splide__arrows .splide__arrow--next svg {
+    fill: rgba(0, 0, 0, 0.6);
+    width: 14px;
+    height: 14px;
+}
+
+.splide .splide__arrows .splide__arrow--prev,
+.splide .splide__arrows .splide__arrow--next {
+    opacity: 1;
+    transition: opacity .4s ease-in-out;
+    border-radius: 10%;
+    height: 48px;
+    width: 48px;
+    background-color: rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.slideDiv {
+    width: 93%;
+    margin: 30px auto;
+    max-width: 1300px;
+}
+
+.cartelModa {
+    width: 95%;
+    height: max-content;
+    margin: 50px auto;
+    max-width: 1300px;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.cartelModa .products {
+    /* position: absolute; */
+    width: 38%;
+    margin-left: 47%;
+    /* top: 0; */
+    /* right: 0; */
+}
+
+/* .paddingB {
+    padding-bottom: 50%;
+    width: 100%;
+} */
+
+.imagenFondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.imagenFondo img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.tituloSlide {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    text-align: left;
+    /* margin-left: 20px; */
+    margin-bottom: 15px;
+}
+
+.slideBorderBotton {
+    border-bottom: 1px rgba(0, 0, 0, .1) solid;
+    padding-bottom: .8%;
+}
+
+.slideOPC {
+    margin-bottom: 70px;
+}
+
+hr {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.hrInicio {
+    width: 100%;
+    margin: 0 0 0 0;
+}
+
+.SlideSplide {
+    /* width: 100vw;
+    max-width: 1400px;
+    margin: 0 auto; */
+    width: 100%;
+    position: relative;
+    z-index: 99;
+}
+
+.SlideSplideSecond {
+    /* width: 100vw; */
+    max-width: 1450px;
+    margin: 30px auto;
+    width: 97%;
+    padding-top: 7px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .07);
+}
+
+.splideTiposMarcas {
+    margin: 10px auto;
+    width: 100%;
+    /* max-width: 1300px; */
+    margin-bottom: 40px;
+}
+
+.imageSlideSecond {
+    max-height: 125px;
+    /* width: 150px; */
+    /* margin-left: 20px; */
+    /* padding-left: 10%; */
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+}
+
+.imageTiposMarcas {
+    max-height: 80px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+}
+
+.imageMarcas {
+    max-width: 120px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+}
+
+.imageSlide {
+    width: 100%;
+    cursor: pointer;
+}
+
+.bannersInicio {
+    width: 95%;
+    margin: 70px auto;
+    max-width: 1200px;
+}
+
+.imagenBanner {
+    width: 100%;
+    height: 100%;
+}
+
+.banner {
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .3);
+}
+
+.bannerHover {
+    transition: scale .4s ease-in-out;
+}
+
+.banner:hover .bannerHover {
+    scale: 1.04;
+}
+
+.productModa .paddingBModa {
+    padding-bottom: 150%;
+    width: 100%;
+}
+
+.productModa {
+    /* border-radius: 6px; */
+    max-width: 230px;
+    margin: 20px 0;
+    width: 90%;
+    height: max-content;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    /* margin-bottom: 60px; */
+    transition: height .3s ease-in-out;
+}
+
+.productModa .descountModa {
+    cursor: pointer;
+    position: absolute;
+    top: 3%;
+    right: -2.5%;
+    width: max-content;
+    background-color: rgba(70, 94, 246, 0.983);
+    box-shadow: 0 0 15px rgba(8, 28, 151, 0.502);
+    padding: 0 9px;
+    padding-bottom: 2px;
+    border-radius: 5px;
+}
+
+.productModa .descountModa span {
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+}
+
+.productModa .imageModa:hover {
+    scale: 1.1;
+}
+
+
+.productModa .img1Moda {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 90%;
+
+}
+
+.productModa .imageModa {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: scale .3s ease-in-out;
+}
+
+.productModa .descriptionProduct {
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    left: 5%;
+}
+
+.productModa .productReferences {
+    padding: 0 10px;
+}
+
+.productModa .sku {
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 0;
+}
+
+.productModa .productPriceModa {
+    display: flex;
+    /* padding: 0 10px; */
+    margin-top: 2px;
+    justify-content: center;
+}
+
+.productModa .priceModa {
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    text-align: left;
+    margin-bottom: 0px;
+
+    color: rgba(255, 255, 255, 1);
+}
+
+.productModa .priceDescountModa {
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: line-through;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.productModa .titleModa {
+    padding: 0 0;
+}
+
+.productModa .nameModa {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.categoryModa {
+    padding: 0 10px;
+    margin-top: 0;
+}
+
+.linkCategoryModa {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.productModa:hover .descriptionProductHover {
+    opacity: 1;
+}
+
+.productModa:hover .descriptionProduct {
+    opacity: 0;
+}
+
+.productModa .imagesModa {
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    height: 70%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.productModa .descriptionsModa {
+    /* border-radius: 8px; */
+    /* background-color: rgba(255, 27, 27, 0.35); */
+    /* background-color: rgba(229, 123, 24, 0.05); */
+    position: relative;
+    width: 100%;
+    height: 30%;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.productModa .imagesModa:hover .product-hover-action-moda {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.productModa .product-hover-action-moda {
+
+    position: absolute;
+    bottom: -20%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: bottom .5s ease-in-out, opacity .8s ease-in-out;
+}
+
+.productModa .cart-action-moda {
+    display: flex;
+    justify-content: center;
+}
+
+.productModa .cartModa:hover svg,
+.productModa .viewModa:hover svg,
+.productModa .wishlistModa:hover svg {
+    animation: svgCartproductModa 1s;
+}
+
+@keyframes svgCartproductModa {
+    0% {
+        margin-top: 0;
+    }
+
+    33% {
+        margin-top: -100%;
+        opacity: 0;
+    }
+
+    66% {
+        margin-top: 100%;
+        opacity: 0;
+    }
+
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+.productModa .cartModa:hover,
+.productModa .viewModa:hover,
+.productModa .wishlist:hover {
+    scale: 1.05;
+}
+
+.productModa .cartModa,
+.productModa .viewModa,
+.productModa .wishlistModa {
+    cursor: pointer;
+    transition: scale .3s ease-in-out;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 10%;
+    background-color: rgba(255, 255, 255, 0.927);
+}
+
+.productModa .cartModa {
+    margin: 0 7%;
+}
+
+.productModa .cartModa svg,
+.productModa .viewModa svg,
+.productModa .wishlistModa svg {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.productModa .shadowCartModa {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+    transition: box-shadow .1s ease-in-out;
+}
+
+.productModa .imagesModa:hover .shadowCartModa {
+    transition: box-shadow .5s ease-in-out;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}

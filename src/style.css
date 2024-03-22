@@ -1,0 +1,54 @@
+.app {
+    min-width: 100vw !important;
+    overflow-x: hidden !important;
+}
+
+.conatiner-app {
+    transition: margin-left .5s ease-in-out;
+}
+
+.container-view {
+    min-width: 100vw;
+}
+
+body {
+    /* background-color: rgba(154, 154, 154, 0.3); */
+    background-color: rgba(241, 241, 241, 0.3);
+    overflow-x: hidden;
+}
+
+.back-move-app-container {
+    background-color: rgba(0, 0, 0, .6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    transition: left .2s ease-in-out, opacity .2s ease-in-out;
+    z-index: 990;
+    opacity: 0;
+}
+
+.bad-catalogue-container {
+    border-radius: 3px;
+    margin: 90px auto;
+    width: 90vw;
+    max-width: 900px;
+    padding: 25px 30px;
+    background-color: rgb(0, 61, 99);
+    border: 2px rgba(0, 19, 31, .7) solid;
+    box-shadow: 0 0 20px rgba(0, 19, 31, .4);
+}
+
+.bad-catalogue-container p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.bad-catalogue-container .title {
+    font-size: 16px;
+}
+
+.bad-catalogue-container .info {
+    font-size: 14px !important;
+}

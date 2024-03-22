@@ -1,0 +1,276 @@
+footer {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: rgb(0, 15, 24);
+    padding: 40px 20px;
+    padding-bottom: 0;
+    width: 100vw;
+    margin-top: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .6) !important;
+}
+
+footer .hrFooter {
+    margin: 20px 0;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+footer .centerDiv {
+    width: max-content;
+    margin: 0 auto;
+}
+
+footer .extra {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer .extra .derechos {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+footer .extra .derechos p {
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.9);
+
+}
+
+footer .extra .pago {
+    width: 100%;
+}
+
+footer .extra .pago p {
+    text-align: right;
+    margin-bottom: 0;
+}
+
+footer .extra .pago ul {
+    display: flex;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+footer .extra .pago li {
+    list-style: none;
+    margin-left: 15px;
+}
+
+footer .extra .pago li img {
+    height: 23px;
+}
+
+footer .textCol {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Nunito', sans-serif;
+    /* max-width: 190px; */
+    /* text-align: center; */
+}
+
+footer .textHover {
+    cursor: pointer;
+    display: flex;
+    transition: color .3s ease-in-out;
+}
+
+footer span {
+    margin-left: 8px;
+}
+
+footer svg {
+    margin: auto 0;
+    color: rgba(255, 255, 255, 0.7);
+    width: 18px;
+    height: 18px;
+}
+
+footer .pLink {
+    margin: 0 0;
+    margin-bottom: 7px;
+}
+
+footer .textAdrress {
+    max-width: 170px;
+}
+
+footer .imagenLogoStafetaSello {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+footer .imagenLogoStafetaSello img {
+    width: 100%;
+    max-width: 170px;
+}
+
+footer .imagenLogoStafeta {
+    width: 100%;
+    margin-left: 17px;
+}
+
+footer .imagenLogoStafeta img {
+    width: 100%;
+    max-width: 150px;
+}
+
+footer .imagenLogo {
+    position: relative;
+    /* background-color: red !important; */
+    width: 100%;
+    margin: 0 auto;
+    /* margin: 30px 0; */
+}
+
+footer .imagenLogo img {
+    width: 100%;
+    /* height: 100%; */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    max-width: 160px;
+}
+
+footer .imagenLogo p {
+    margin-bottom: 0;
+    /* text-align: center; */
+    margin: 0 auto;
+    text-decoration: unset !important;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    width: max-content;
+    color: white;
+    font-size: 25px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, .5);
+    transition: text-shadow .3s ease-in-out;
+}
+
+footer .link {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color .3s ease-in-out;
+    position: relative;
+    padding: 0 7px;
+    /* max-width: 190px; */
+    margin-left: -7px;
+    margin-bottom: 10px;
+}
+
+footer .link:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+footer .link::before {
+    content: "";
+    width: 0;
+    opacity: 0;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    border-radius: 1px;
+    transition: opacity .4s ease-in-out, width .4s ease-in-out, left .4s ease-in-out;
+}
+
+footer .link:hover::before {
+    width: 100%;
+    left: 0;
+    opacity: 1;
+}
+
+footer .contact {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+footer .textHover:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+footer .contenido {
+    width: 100%;
+    max-width: 1250px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+footer .tituloCol {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: text-shadow .3s ease-in-out;
+    cursor: pointer;
+}
+
+footer .tituloCol:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+
+}
+
+footer .social {
+    display: flex;
+    width: 100%;
+    margin-left: -5px;
+    justify-content: center;
+}
+
+footer .social .red:last-child {
+    margin-right: 0;
+}
+
+footer .social .red {
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    position: relative;
+    margin-right: 5px;
+}
+
+footer .social .red::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 41, 41, .9);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width .3s ease-in-out, height .3s ease-in-out;
+}
+
+footer .social .red:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+footer .social .red:hover svg {
+    fill: rgba(255, 255, 255, 1);
+}
+
+footer .social .red svg {
+    width: 45%;
+    height: 45%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: rgba(255, 255, 255, 0.8);
+    transition: fill .3s ease-in-out;
+}
