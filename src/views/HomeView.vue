@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue';
-import SlideProductsByCategory from '../components//modules/home/SlideProductsByCategory.vue';
+import SlideProductsByCategory from '../components/layout/SlideProducts/SlideProductsByCategory.vue';
 import { initSlides, unloadSlides } from '../helpers/splideHelper';
 import { BASE_URL_IMG } from '../constants';
 

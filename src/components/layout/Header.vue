@@ -261,7 +261,8 @@ onMounted(() => {
                         <!-- @endguest -->
 
                         <!-- @auth -->
-                        <div v-if="isLogin" class="drop-content user-drop" @mouseover="hoverDropMenu" @mouseout="noHoverDropMenu">
+                        <div v-if="isLogin" class="drop-content user-drop" @mouseover="hoverDropMenu"
+                            @mouseout="noHoverDropMenu">
                             <button class="drop-menu-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-person svgUser" viewBox="0 0 16 16">
@@ -278,7 +279,7 @@ onMounted(() => {
                                 <section class="toogle-body"></section>
                                 <section class="user-name">
                                     <section class="name-welcome">
-                                        <p>!Hola {{ 'Nombre' }}
+                                        <p>!Hola {{ dataUser.name || 'User' }}
                                             Bienvenido¡
                                         </p>
                                     </section>

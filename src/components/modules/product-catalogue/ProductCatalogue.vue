@@ -3,6 +3,7 @@ import { ref, onMounted, computed, watch } from 'vue';
 import { useStore } from 'vuex';
 import router from '../../../router';
 import { deepClone } from '../../../helpers';
+import { FILTERS_CATALOGUE_CONST } from '../../../constants';
 import { setDisplayAnimation } from '../../../helpers/animationHelper';
 import { getProductsByAPI } from '../../../services/APIService';
 import Pagination from '../../layout/Pagination.vue';
@@ -44,15 +45,6 @@ const filters = ref({
   price: { from: 'all', to: 'all' },
   for_table: true
 });
-
-const FILTERS_CATALOGUE_CONST = {
-  brands: [],
-  // search: '',
-  // categorySlug: '',
-  orderBy: '',
-  price: { from: 'all', to: 'all' },
-  // for_table: true
-};
 
 const initCatalogue = () => {
   products.value = []
@@ -145,7 +137,7 @@ const onRender = ({ animationFlex = true, animationBlock = false } = {}) => {
   getProducts();
 }
 
-const checkedFilter = ({event, filter, value}) => {
+const checkedFilter = ({ event, filter, value }) => {
   if (filter === 'brands') {
     if (!event.target.checked) {
       filters.value[filter] = filters.value[filter].filter(elm => elm !== value);
@@ -165,7 +157,6 @@ const checkedFilter = ({event, filter, value}) => {
 };
 
 const getProductsByUrl = () => {
-  // console.log(paramsURL.value);
   if (paramsURL.value.slug) {
     filters.value.categorySlug = paramsURL.value.slug;
     return true;

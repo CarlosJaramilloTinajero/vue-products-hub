@@ -393,28 +393,6 @@
     display: none;
 }
 
-.contenedorSearch .loanding-animation {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 100;
-}
-
-.contenedorSearch .loanding-animation::before {
-    content: "";
-    position: absolute;
-    z-index: 101;
-    width: 3%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
-    top: 0;
-    left: -3%;
-    animation: loanding 1.2s linear infinite;
-}
-
-
 @keyframes loanding {
 
     0% {

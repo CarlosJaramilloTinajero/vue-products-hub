@@ -2,6 +2,7 @@ export const initSlides = ({ funcAddedSPlide = () => { } } = {}) => {
     let elms = document.getElementsByClassName('splide');
 
     for (let i = 0; i < elms.length; i++) {
+        if (elms[i].classList.contains('main-carousel') || elms[i].classList.contains('thumbnail-carousel')) continue;
         if (elms[i].classList.contains('loaded')) continue;
         elms[i].classList.add('loaded');
         let splide = new Splide(elms[i], {
@@ -29,6 +30,7 @@ export const unloadSlides = () => {
     let elms = document.getElementsByClassName('splide');
 
     for (let i = 0; i < elms.length; i++) {
+        if (elms[i].classList.contains('main-carousel') || elms[i].classList.contains('thumbnail-carousel')) continue;
         if (elms[i].classList.contains('loaded')) elms[i].classList.remove('loaded');
     }
 } 

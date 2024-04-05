@@ -1,16 +1,17 @@
 import axios from "axios";
 import { notify } from "../notify";
+import { APP_DEBUG } from "../constants";
 
 class conecction {
     constructor(token) {
         this.token = token;
         this.axiosCon = axios.create({
-            // baseURL: 'http://127.0.0.1:8000/api/public/'
-            baseURL: 'https://api.carlosjaramillo.beauty/api/public/'
+            baseURL: APP_DEBUG ? 'http://127.0.0.1:8000/api/' : 'https://api.carlosjaramillo.beauty/api/'
+            // baseURL: 'https://api.carlosjaramillo.beauty/api/'
         });
     }
 
-    async loadData({method = '', url = '', data = {}, token = false, errorResponse = false}) {
+    async loadData({ publicURL = true, method = '', url = '', data = {}, token = false, errorResponse = false }) {
 
         // if (token && (!this.token || this.token !== localStorage.getItem('token'))) {
         //     this.token = localStorage.getItem('token');
@@ -23,7 +24,7 @@ class conecction {
         try {
             return await this.axiosCon({
                 method: method,
-                url: url,
+                url: (publicURL ? 'public/' : '') + url,
                 data: data,
                 headers: header
             });

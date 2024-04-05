@@ -5,6 +5,8 @@ import Header from './components/layout/Header.vue';
 import { useStore } from 'vuex';
 import { animationInitApp } from './helpers/animationHelper';
 import Footer from './components/layout/Footer.vue';
+import { initAPP } from './services/APIService';
+import { APP_DEBUG } from './constants';
 
 const store = useStore();
 
@@ -29,6 +31,7 @@ watchEffect(() => {
 });
 
 onMounted(() => {
+  if (!APP_DEBUG) initAPP();
   animationInitApp();
   store.dispatch('setIsLoginAction');
 });

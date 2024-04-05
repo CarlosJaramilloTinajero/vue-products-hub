@@ -3,6 +3,7 @@ import CategoryCatalogueView from "../views/CategoryCatalogueView.vue";
 import ProductCatalogueView from "../views/ProductCatalogueView.vue";
 import HomeView from "../views/HomeView.vue";
 import Catalogue404 from "../components/status/Catalogue404.vue";
+import ProductView from '../views/ProductView.vue'
 
 const routes = [
     // Home
@@ -11,6 +12,9 @@ const routes = [
     // Catalogue
     { path: '/category/:slug', name: 'product-category', component: CategoryCatalogueView },
     { path: '/products/:search', name: 'product-search', component: ProductCatalogueView },
+
+    // Product view
+    { path: '/product/:slug', name: 'product-view', component: ProductView },
 
     // 404
     { path: '/:pathMatch(.*)*', name: 'not-found', component: Catalogue404 }

@@ -1,6 +1,7 @@
 <script setup>
 
 import { randomBoolean, randomNumber } from '../../../helpers';
+// import router from '../../../router';
 
 const props = defineProps({
     products: {
@@ -8,6 +9,8 @@ const props = defineProps({
         default: {}
     }
 });
+
+// const handleClikShowProduct = slug => router.push('')
 
 </script>
 
@@ -22,19 +25,21 @@ const props = defineProps({
 
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                     <div class="images">
-                        <picture class="img1">
-                            <img class="image" :src="item.img_path" alt="">
-                        </picture>
-                        <picture class="img2">
-                            <img class="image" :src="item.img_path" alt="">
-                        </picture>
+                        <router-link :to="`/product/${item.slug}`">
+                            <picture class="img1">
+                                <img class="image" :src="item.img_path" alt="">
+                            </picture>
+                            <picture class="img2">
+                                <img class="image" :src="item.img_path" alt="">
+                            </picture>
+                        </router-link>
 
                         <div class="shadowCart"></div>
 
                         <div class="product-hover-action">
                             <div class="cart-action">
                                 <div class="view">
-                                    <a>
+                                    <router-link :to="`/product/${item.slug}`">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                             <path
@@ -42,7 +47,7 @@ const props = defineProps({
                                             <path
                                                 d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                         </svg>
-                                    </a>
+                                    </router-link>
                                 </div>
 
                                 <div class="cart">
