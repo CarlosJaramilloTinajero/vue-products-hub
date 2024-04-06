@@ -47,13 +47,13 @@ onMounted(() => {
     {
         "type":"loop",
         "autoplay": true,
-        "perPage": 5,
+        "perPage": 4,
         "breakpoints": {
-            "1250": {"perPage": 4},
+            "1250": {"perPage": 3},
             "900": {"perPage": 3},
-            "650": {"perPage": 2},
+            "750": {"perPage": 2},
             "530": {"perPage": 2},
-            "400": {"perPage": 2}
+            "400": {"perPage": 1}
         }
     }'>
         <div class="splide__arrows">

@@ -1,0 +1,27 @@
+[
+    {
+        "img": "/assets/img/brands/amd-b.webp",
+        "link": "amd",
+        "brand": "amd"
+    },
+    {
+        "link": "baco",
+        "img": "/assets/img/brands/baco-b.webp",
+        "brand": "baco"
+    },
+    {
+        "link": "corsair",
+        "img": "/assets/img/brands/corsair-b.webp",
+        "brand": "corsair"
+    },
+    {
+        "img": "/assets/img/brands/intel-b.webp",
+        "brand": "intel",
+        "link": "intel"
+    },
+    {
+        "img": "/assets/img/brands/zebra-b.webp",
+        "brand": "zebra",
+        "link": "zebra"
+    }
+]

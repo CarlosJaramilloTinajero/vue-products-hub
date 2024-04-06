@@ -1,0 +1,18 @@
+[
+    {
+        "img": "/assets/img/payments/visa-b.webp",
+        "payment": "visa"
+    },
+    {
+        "img": "/assets/img/payments/kiosko-b.webp",
+        "payment": "kiosko"
+    },
+    {
+        "img": "/assets/img/payments/bancopel-b.webp",
+        "payment": "bancopel"
+    },
+    {
+        "img": "/assets/img/payments/mastercard-b.webp",
+        "payment": "mastercard"
+    }
+]

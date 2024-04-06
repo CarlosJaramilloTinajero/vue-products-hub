@@ -3,6 +3,8 @@ import { onMounted } from 'vue';
 import SlideProductsByCategory from '../components/layout/SlideProducts/SlideProductsByCategory.vue';
 import { initSlides, unloadSlides } from '../helpers/splideHelper';
 import { BASE_URL_IMG } from '../constants';
+import bestBrands from '../utils/json/home/best-brands.json';
+import payments from '../utils/json/home/payments.json'
 
 onMounted(() => {
     unloadSlides();
@@ -139,8 +141,7 @@ onMounted(() => {
         <!-- Slide productos destacados -->
         <div class=" slideDiv">
             <h4 class="tituloSlide">Productos destacados</h4>
-            <hr class="hrInicio">
-            <SlideProductsByCategory category-slug="computo" />
+            <SlideProductsByCategory category-slug="random-products" />
         </div>
 
         <!-- Slide formas pago -->
@@ -162,21 +163,8 @@ onMounted(() => {
 
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageTiposMarcas" :src="`${BASE_URL_IMG}/assets/img/payments/visa-b.webp`"
-                                alt="">
-                        </li>
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageTiposMarcas" :src="`${BASE_URL_IMG}/assets/img/payments/kiosko-b.webp`"
-                                alt="">
-                        </li>
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageTiposMarcas" :src="`${BASE_URL_IMG}/assets/img/payments/bancopel-b.webp`"
-                                alt="">
-                        </li>
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageTiposMarcas" :src="`${BASE_URL_IMG}/assets/img/payments/mastercard-b.webp`"
-                                alt="">
+                        <li class="splide__slide slideBorderBotton" v-for="(item, index) in payments" :key="index">
+                            <img class="imageTiposMarcas" :src="BASE_URL_IMG + item.img" :alt="item.payment">
                         </li>
                     </ul>
                 </div>
@@ -186,16 +174,14 @@ onMounted(() => {
         <!-- Slide mejores ofertas -->
         <div class=" slideDiv">
             <h4 class="tituloSlide">Las mejores ofertas</h4>
-            <hr class="hrInicio">
-            <SlideProductsByCategory category-slug="camara-video-y-proyeccion" />
+            <SlideProductsByCategory category-slug="random-products" />
         </div>
 
         <!-- Slide computo -->
-        <!-- {{ -- < div class=" slideDiv" >
-            <h4 class="tituloSlide" > Computo < /h4>
-                < hr class="hrInicio" >
-                    @livewire('products-category-version', ['category_id' => 1])
-                    < /div> --}} -->
+        <div class=" slideDiv">
+            <h4 class="tituloSlide">Computo</h4>
+            <SlideProductsByCategory category-slug="computo" />
+        </div>
 
         <!-- Slide marcas -->
         <div class=" slideDiv slideOPC">
@@ -216,20 +202,10 @@ onMounted(() => {
 
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageMarcas" :src="`${BASE_URL_IMG}/assets/img/brands/amd-b.webp`" alt="">
-                        </li>
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageMarcas" :src="`${BASE_URL_IMG}/assets/img/brands/baco-b.webp`" alt="">
-                        </li>
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageMarcas" :src="`${BASE_URL_IMG}/assets/img/brands/corsair-b.webp`" alt="">
-                        </li>
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageMarcas" :src="`${BASE_URL_IMG}/assets/img/brands/intel-b.webp`" alt="">
-                        </li>
-                        <li class="splide__slide slideBorderBotton">
-                            <img class="imageMarcas" :src="`${BASE_URL_IMG}/assets/img/brands/zebra-b.webp`" alt="">
+                        <li class="splide__slide slideBorderBotton" v-for="(item, index) in bestBrands" :key="index">
+                            <!-- <router-link :to="`/brand/${item.link}`"> -->
+                            <img class="imageMarcas" :src="`${BASE_URL_IMG + item.img}`" :alt="item.brand">
+                            <!-- </router-link> -->
                         </li>
                     </ul>
                 </div>
@@ -239,14 +215,12 @@ onMounted(() => {
         <!-- Slide Electrónica de Consumo -->
         <div class=" slideDiv">
             <h4 class="tituloSlide">Librería y Papelería</h4>
-            <hr class="hrInicio">
             <SlideProductsByCategory category-slug="libreria-y-papeleria" />
         </div>
 
         <!-- Slide Seguridad -->
         <div class=" slideDiv">
             <h4 class="tituloSlide">Almacenamiento</h4>
-            <hr class="hrInicio">
             <SlideProductsByCategory category-slug="almacenamiento" />
         </div>
 
