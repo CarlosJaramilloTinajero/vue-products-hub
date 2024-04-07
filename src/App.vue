@@ -10,6 +10,13 @@ import { APP_DEBUG } from './constants';
 
 const store = useStore();
 
+const routesNotShowHeaderFooter = ref(['login', 'register']);
+
+const showHeaderAndFooter = computed(() => {
+  const routeName = router.currentRoute.value.name;
+  return !routesNotShowHeaderFooter.value.some(elm => elm === routeName);
+});
+
 const routeAct = ref(router.currentRoute.value.path);
 
 const handleWatchChange = () => {
@@ -43,7 +50,7 @@ onMounted(() => {
       :style="{ 'left': moveContainerApp ? '0' : '-100vw', 'opacity': moveContainerApp ? '1' : '0' }">
     </section>
     <div class="conatiner-app" :style="{ 'margin-left': moveContainerApp ? '280px' : '0' }">
-      <Header />
+      <Header v-show="showHeaderAndFooter" />
       <div class="container-view loading">
         <router-view></router-view>
       </div>
@@ -52,7 +59,7 @@ onMounted(() => {
         <picture id="animacion"></picture>
       </div>
 
-      <Footer />
+      <Footer v-show="showHeaderAndFooter" />
     </div>
   </section>
 </template>

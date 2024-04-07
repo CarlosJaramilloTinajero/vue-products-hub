@@ -30,14 +30,19 @@ class conecction {
             });
         } catch (error) {
 
-            if (!errorResponse) {
-                notify('¡Error al obtener los datos del servidor!', 'error')
+            if (errorResponse && error.response.status === 500) {
+                notify('¡Error en el servidor!', 'error')
                 return;
             }
-            // error.response.status == 401 ||
-            if (errorResponse && error.response && (error.response.status == 400)) {
-                notify(error.response.data, 'error');
+
+            if (error?.response?.status === 400) {
+                if (error.response.data.mgs) notify(error.response?.data?.mgs, 'error');
             }
+
+            // error.response.status == 401 ||
+            // if (errorResponse && error.response && (error.response.status == 400)) {
+            //     notify(error.response.data, 'error');
+            // }
 
         }
     }

@@ -25,6 +25,14 @@ const userModulde = {
             }
 
             commit('setDataUser', aux);
+        },
+        logoutUser({ commit, dispatch }) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user_name');
+            commit('setIsLogin', false);
+            commit('setDataUser', {
+                name: ''
+            });
         }
     }
 }

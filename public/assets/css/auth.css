@@ -1,0 +1,49 @@
+.header-auth {
+    position: relative;
+    background-color: rgb(0, 73, 119);
+    width: 100vw;
+    height: 65px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+}
+
+.header-auth .logo {
+    width: 60px;
+    height: 100%;
+}
+
+.header-auth .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.container-auth {
+    margin: 60px auto;
+    position: relative;
+    padding: 40px;
+    background-color: white;
+    width: 95vw;
+    max-width: 400px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.container-auth .title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 23px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.container-auth .info-text {
+    margin-top: 40px;
+    margin-bottom: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px !important;
+    text-align: left;
+}
+
+.container-auth .info-text a {
+    color: rgb(0, 62, 100);
+}

@@ -2,6 +2,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { getCategoriesByAPI } from '../../services/APIService';
 import { useStore } from 'vuex';
+import router from '../../router';
 
 const store = useStore();
 
@@ -25,6 +26,11 @@ const categories = ref([]);
 const isLogin = computed(() => {
     return store.state.userModule.isLogin;
 });
+
+const logout = () => {
+    store.dispatch('logoutUser');
+    router.push('/');
+}
 
 onMounted(() => {
     getCategoriesByAPI({
@@ -55,22 +61,26 @@ const closeMenu = () => {
 
         <div class="links-container">
             <!-- Auth -->
-            <div class="link" v-if="isLogin" @click="closeMenu">
+            <div class="link" v-show="isLogin" @click="closeMenu">
                 <router-link to="/">Mi Cuenta</router-link>
             </div>
 
-            <div class="link" v-if="isLogin" @click="closeMenu">
+            <div class="link" v-show="isLogin" @click="closeMenu">
                 <router-link to="/">Favoritos</router-link>
+            </div>
+
+            <div class="link" style="cursor: pointer;" v-show="isLogin" @click="closeMenu">
+                <a @click="logout()">Salir</a>
             </div>
             <!-- En Auth -->
 
             <!-- Guest -->
-            <div class="link" v-if="!isLogin" @click="closeMenu">
-                <router-link to="/">Iniciar sesion</router-link>
+            <div class="link" v-show="!isLogin" @click="closeMenu">
+                <router-link to="/login">Iniciar sesion</router-link>
             </div>
 
-            <div class="link" v-if="!isLogin" @click="closeMenu">
-                <router-link to="/">Registro</router-link>
+            <div class="link" v-show="!isLogin" @click="closeMenu">
+                <router-link to="/register">Registro</router-link>
             </div>
             <!-- End Guest -->
 

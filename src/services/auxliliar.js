@@ -6,25 +6,25 @@ const classConecction = new conecction('$2y$10$qxrB6JHv6MWnI.Z3pDWD8OpI1dwxyAVpE
 export const fetchData = async ({ publicURL = true, url, method, requestData = {}, token = true }) => {
     try {
         const { data } = await classConecction.loadData({ url: url, method: method, data: requestData, token, publicURL });
-        if (data.mgs) {
-            notify(data.mgs, 'error');
-        }
+        // if (data.mgs) {
+        //     notify(data.mgs, 'error');
+        // }
         return data && data.status ? data : null;
     } catch (error) {
         // console.log(error);
-        if (error?.response?.status !== 401) {
-            notify('Error en el servidor', 'error');
-        }
+        // if (error?.response?.status === 400) {
+        //     notify(error.response?.data?.msg);
+        // }
         return null;
     }
 }
 
-export const makeApiRequest = async ({ url, method, requestData = {}, funcSuccess = () => { }, funcError = () => { }, showNotify = false, msgSuccess = '', msgError = '' }) => {
+export const makeApiRequest = async ({ url, method, requestData = {}, funcSuccess = () => { }, funcError = () => { }, showNotify = false, msgSuccess = '', msgError = '', publicURL = true }) => {
     let idNotify = null;
     if (showNotify) idNotify = notify('Cargando...', 'loading');
 
     try {
-        const data = await fetchData({ url, method, requestData, publicURL: true, token: true });
+        const data = await fetchData({ url, method, requestData, publicURL, token: true });
 
         if (data && data.status) {
             if (idNotify) updateNotify(idNotify, msgSuccess, 'success');

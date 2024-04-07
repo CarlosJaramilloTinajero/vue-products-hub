@@ -59,6 +59,11 @@ const setShowMenuMovil = bool => {
     store.dispatch('moveContainerAppAction', bool);
 }
 
+const logout = () => {
+    store.dispatch('logoutUser');
+    router.push('/');
+}
+
 watch(() => moveContainerApp.value, (newValue, oldValue) => {
     if (!newValue) setShowMenuMovil(false);
 })
@@ -229,7 +234,7 @@ onMounted(() => {
                     </div>
 
                     <!-- Ruta -->
-                    <div class="category_jerarqui" v-if="categoriesTree && categoriesTree.length > 0">
+                    <div class="category_jerarqui" v-show="categoriesTree && categoriesTree.length > 0">
                         <div class="category_je" v-for="(categoryType, index) in categoriesTree" :key="index">
                             <router-link :to="`/category/${categoryType.slug}`">{{ categoryType.name }}</router-link>
                             <div class="childs-by-name"
@@ -256,12 +261,12 @@ onMounted(() => {
 
                     <section class="user">
                         <!-- @guest -->
-                        <router-link v-if="!isLogin" class="link" to="/">Crea tu cuneta</router-link>
-                        <router-link v-if="!isLogin" class="link" to="/">Ingresa</router-link>
+                        <router-link v-show="!isLogin" class="link" to="/register">Crea tu cuneta</router-link>
+                        <router-link v-show="!isLogin" class="link" to="/login">Ingresa</router-link>
                         <!-- @endguest -->
 
                         <!-- @auth -->
-                        <div v-if="isLogin" class="drop-content user-drop" @mouseover="hoverDropMenu"
+                        <div v-show="isLogin" class="drop-content user-drop" @mouseover="hoverDropMenu"
                             @mouseout="noHoverDropMenu">
                             <button class="drop-menu-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -285,20 +290,20 @@ onMounted(() => {
                                     </section>
                                 </section>
                                 <hr>
-                                <div onclick="location.href=''">Detalles personales</div>
-                                <div onclick="location.href=''">Rastrea tu pedido</div>
-                                <div onclick="location.href=''">Cambiar contraseña</div>
-                                <div onclick="location.href=''">Mis compras</div>
+                                <div>Detalles personales</div>
+                                <div>Rastrea tu pedido</div>
+                                <div>Cambiar contraseña</div>
+                                <div>Mis compras</div>
                                 <hr>
-                                <div onclick="location.href='/logout'">Salir</div>
+                                <div @click="logout()">Salir</div>
                             </div>
                         </div>
                         <!-- @endauth -->
 
-                        <router-link v-if="isLogin" class="link" to="/">Mis conpras</router-link>
+                        <router-link v-show="isLogin" class="link" to="/">Mis conpras</router-link>
 
                         <!-- @auth -->
-                        <router-link v-if="isLogin" class="link wishlistLink" to="/">
+                        <router-link v-show="isLogin" class="link wishlistLink" to="/">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-heart" viewBox="0 0 16 16">
                                 <path

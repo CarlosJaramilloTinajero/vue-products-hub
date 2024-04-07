@@ -87,11 +87,11 @@ font-family: 'Roboto Flex', sans-serif;
 .btnSuscription {
     cursor: pointer;
     transition: scale .4s ease-in-out;
-    border: none;
     position: relative;
     height: 50px;
     width: 60%;
     overflow: hidden;
+    border: unset !important;
     /* background-image: radial-gradient(circle at 12.5% 12.5%, #ec73e7 0, #d665e0 25%, #be55d8 50%, #a446d0 75%, #8b3aca 100%); */
     /* background-image: radial-gradient(circle at 12.5% 12.5%, rgba(229, 123, 24) 0, rgb(229, 58, 24) 25%, rgba(229, 123, 24) 50%, rgb(229, 58, 24) 75%, rgba(229, 123, 24) 100%); */
     /* background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(247, 87, 0, 1) 0%, rgba(249, 0, 0, 1) 90.1%); */
