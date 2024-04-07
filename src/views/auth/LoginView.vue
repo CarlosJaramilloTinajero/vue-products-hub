@@ -5,7 +5,7 @@ import { loginAPI } from '../../services/auth';
 import { deepClone } from '../../helpers';
 import router from '../../router';
 import { mapActions } from 'vuex';
-import { APP_DEBUG } from '../../constants';
+import { BASE_URL_IMG } from '../../constants';
 
 export default defineComponent({
     name: 'LoginView',
@@ -13,8 +13,9 @@ export default defineComponent({
         return {
             userFom: {
                 name: '',
-                password: ''
-            }
+                password: '',
+            },
+            baseUrlImage: BASE_URL_IMG
         }
     },
     methods: {
@@ -27,7 +28,7 @@ export default defineComponent({
                 credentials: deepClone(this.userFom),
                 showNotify: true,
                 funcSuccess: (response) => {
-                    if (APP_DEBUG) response = response.data;
+                    if (response.data) response = response.data;
                     localStorage.setItem('token', response.token_type + ' ' + response.access_token);
                     localStorage.setItem('user_name', response.user_name);
                     router.push('/');
@@ -56,7 +57,7 @@ export default defineComponent({
     <section class="header-auth">
         <picture class="logo">
             <router-link to="/">
-                <img src="/icon.svg" alt="">
+                <img :src="`${baseUrlImage}/icon.svg`" alt="">
             </router-link>
         </picture>
     </section>

@@ -3,8 +3,8 @@ import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
 import { registerAPI } from '../../services/auth';
 import { deepClone } from '../../helpers';
-import { APP_DEBUG } from '../../constants';
 import router from '../../router';
+import { BASE_URL_IMG } from '../../constants';
 
 export default defineComponent({
     name: 'RegisterView',
@@ -13,8 +13,9 @@ export default defineComponent({
             userFom: {
                 name: '',
                 password: '',
-                email: ''
-            }
+                email: '',
+            },
+            baseUrlImage: BASE_URL_IMG
         }
     },
     methods: {
@@ -27,7 +28,7 @@ export default defineComponent({
                 data: deepClone(this.userFom),
                 showNotify: true,
                 funcSuccess: (response) => {
-                    if (APP_DEBUG) response = response.data;
+                    if (response.data) response = response.data;
                     localStorage.setItem('token', response.token_type + ' ' + response.access_token);
                     localStorage.setItem('user_name', response.user_name);
                     router.push('/');
@@ -58,7 +59,7 @@ export default defineComponent({
     <section class="header-auth">
         <picture class="logo">
             <router-link to="/">
-                <img src="/icon.svg" alt="">
+                <img :src="`${baseUrlImage}/icon.svg`" alt="">
             </router-link>
         </picture>
     </section>
