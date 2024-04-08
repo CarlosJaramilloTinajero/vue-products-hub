@@ -66,15 +66,16 @@ export default defineComponent({
         <p class="title">Inicia sesión</p>
         <form @submit.prevent="handleSubmit">
             <div class="mb-3">
-                <div class="input-group">
-                    <input v-model="userFom.name" placeholder="Nombre" type="text" required class="form-control">
+                <div class="input-group-p">
+                    <input v-model="userFom.name" placeholder="Nombre" type="text" required
+                        class="form-control input-border input-border-primary">
                     <label class="placeholder-i">Nombre</label>
                 </div>
             </div>
             <div class="mb-4">
-                <div class="input-group">
+                <div class="input-group-p">
                     <input v-model="userFom.password" required placeholder="password" type="password"
-                        class="form-control">
+                        class="form-control input-border input-border-primary">
                     <label class="placeholder-i">Contraseña</label>
                 </div>
             </div>

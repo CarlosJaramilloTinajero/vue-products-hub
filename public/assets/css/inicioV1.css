@@ -18,7 +18,7 @@ font-family: 'Roboto Flex', sans-serif;
 .my-slider-progress-bar {
     /* background: greenyellow; */
     /* background: linear-gradient(78deg, rgba(241, 76, 0, 1) 35%, rgba(255, 132, 0, 1) 72%); */
-    background: linear-gradient(78deg, rgba(0, 93, 151, 0.9) 35%, rgba(0, 157, 255, 0.9) 72%);
+    background: linear-gradient(78deg, var(--color-primary) 35%, var(--color-primary-light) 72%);
     height: 2px;
     transition: width 400ms ease;
     width: 0;

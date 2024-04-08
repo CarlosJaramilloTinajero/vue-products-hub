@@ -140,8 +140,7 @@ onMounted(() => {
 
         <!-- Slide productos destacados -->
         <div class=" slideDiv">
-            <h4 class="tituloSlide">Productos destacados</h4>
-            <SlideProductsByCategory category-slug="random-products" />
+            <SlideProductsByCategory category-slug="random-products" title="Productos destacados" />
         </div>
 
         <!-- Slide formas pago -->
@@ -173,14 +172,12 @@ onMounted(() => {
 
         <!-- Slide mejores ofertas -->
         <div class=" slideDiv">
-            <h4 class="tituloSlide">Las mejores ofertas</h4>
-            <SlideProductsByCategory category-slug="random-products" />
+            <SlideProductsByCategory category-slug="random-products" title="Las mejores ofertas" />
         </div>
 
         <!-- Slide computo -->
         <div class=" slideDiv">
-            <h4 class="tituloSlide">Computo</h4>
-            <SlideProductsByCategory category-slug="computo" />
+            <SlideProductsByCategory category-slug="computo" title="Computo" />
         </div>
 
         <!-- Slide marcas -->
@@ -214,14 +211,12 @@ onMounted(() => {
 
         <!-- Slide Electrónica de Consumo -->
         <div class=" slideDiv">
-            <h4 class="tituloSlide">Librería y Papelería</h4>
-            <SlideProductsByCategory category-slug="libreria-y-papeleria" />
+            <SlideProductsByCategory category-slug="libreria-y-papeleria" title="Librería y Papelería" />
         </div>
 
         <!-- Slide Seguridad -->
         <div class=" slideDiv">
-            <h4 class="tituloSlide">Almacenamiento</h4>
-            <SlideProductsByCategory category-slug="almacenamiento" />
+            <SlideProductsByCategory category-slug="almacenamiento" title="Almacenamiento" />
         </div>
 
         <!-- Sobre nosotros computadora -->

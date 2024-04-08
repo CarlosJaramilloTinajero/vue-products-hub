@@ -68,21 +68,23 @@ export default defineComponent({
         <p class="title">Registrarse</p>
         <form @submit.prevent="handleSubmit">
             <div class="mb-3">
-                <div class="input-group">
-                    <input type="text" v-model="userFom.name" required placeholder="Nombre" class="form-control">
+                <div class="input-group-p">
+                    <input type="text" v-model="userFom.name" required placeholder="Nombre"
+                        class="form-control input-border input-border-primary">
                     <label class="placeholder-i">Nombre</label>
                 </div>
             </div>
             <div class="mb-3">
-                <div class="input-group">
-                    <input type="email" v-model="userFom.email" required placeholder="Email" class="form-control">
+                <div class="input-group-p">
+                    <input type="email" v-model="userFom.email" required placeholder="Email"
+                        class="form-control input-border input-border-primary">
                     <label class="placeholder-i">Email</label>
                 </div>
             </div>
             <div class="mb-4">
-                <div class="input-group">
+                <div class="input-group-p">
                     <input type="password" v-model="userFom.password" required placeholder="password"
-                        class="form-control">
+                        class="form-control input-border input-border-primary">
                     <label class="placeholder-i">Contraseña</label>
                 </div>
             </div>

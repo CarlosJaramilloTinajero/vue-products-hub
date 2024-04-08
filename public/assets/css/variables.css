@@ -1,0 +1,10 @@
+:root {
+    --color-primary: rgb(0, 84, 136);
+    --color-primary-dark: rgba(0, 19, 31, 1);
+    --color-primary-light: rgb(0, 152, 247);
+    --color-primary-very-dark: rgb(0, 15, 24);
+    /* --color-primary: red;
+    --color-primary-dark: red;
+    --color-primary-light: red;
+    --color-primary-very-dark: yellow; */
+}

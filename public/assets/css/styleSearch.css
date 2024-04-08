@@ -261,7 +261,7 @@
 
 .filter .body-filter .parents .parent .to-back.current-page {
     /* border: 1px rgba(186, 59, 0, 0.952) solid; */
-    border: 1px rgba(0, 19, 31, 0.9) solid;
+    border: 1px var(--color-primary-very-dark) solid;
     /* position: absolute; */
     /* bottom: 0; */
     /* left: 0; */
@@ -272,7 +272,7 @@
     height: 7px;
     border-radius: 50%;
     /* background-color: rgba(186, 59, 0, 0.952); bb*/
-    background-color: rgba(0, 19, 31, 0.9);
+    background-color: var(--color-primary-very-dark);
     margin-left: 6px;
     margin-top: 6px;
 }

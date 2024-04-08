@@ -114,12 +114,12 @@ const checkedFilterEmit = (event, filter, value) => {
                 <p>Precios</p>
             </div>
             <div class="body-filter with-out-overflow-y">
-                <div v-for="( item, index ) in  filtersByApi.price " :key="index" class="form-check">
+                <div v-for="( item, index ) in  filtersByApi.price " :key="index" class="form-check d-flex justify-content-start">
                     <input :checked="item.to === filters.price.to && item.from === filters.price.from"
                         class="form-check-input" type="radio" :name="`radio-price-${index}-${typeFilters}`"
                         :id="`radio-price-${index}-${typeFilters}`"
-                        @change="checkedFilterEmit($event, 'price', { from: item.from, to: item.to })">
-                    <label class="form-check-label" :for="`radio-price-${index}-${typeFilters}`">
+                        @change="checkedFilterEmit($event, 'price', { from: item.from, to: item.to })" />
+                    <label class="form-check-label mt-2" :for="`radio-price-${index}-${typeFilters}`">
                         {{ item.title }}
                     </label>
                 </div>

@@ -84,8 +84,8 @@ export default defineComponent({
     </section>
 
     <section class="related-products" v-if="productView && productView.brand">
-        <p class="title">Productos relacionados</p>
-        <SlideProductsByCategory category-slug="random-products" :brands="[productView?.brand?.name]" />
+        <SlideProductsByCategory category-slug="random-products" :brands="[productView?.brand?.name]"
+            title="Productos relacionados" />
     </section>
 </template>
 

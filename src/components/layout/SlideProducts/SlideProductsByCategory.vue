@@ -6,6 +6,10 @@ import ProductSlide from './ProductSlide.vue';
 import ProductSlideAnimation from './ProductSlideAnimation.vue'
 
 const props = defineProps({
+    title: {
+        type: String,
+        required: true
+    },
     categorySlug: {
         type: String,
         default: ''
@@ -43,6 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
+    <h4 class="tituloSlide">{{ title }}</h4>
     <section v-if="products" class="splide" data-splide='
     {
         "type":"loop",

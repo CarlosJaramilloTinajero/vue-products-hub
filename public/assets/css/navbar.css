@@ -10,7 +10,7 @@ font-family: 'Roboto Flex', sans-serif;
     position: relative;
     width: 100vw;
     padding: 7px 0;
-    background-color: rgba(0, 19, 31, 1);
+    background-color: var(--color-primary-dark);
     box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
     min-height: 50px;
 }
@@ -63,7 +63,7 @@ font-family: 'Roboto Flex', sans-serif;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 19, 31, 1);
+    background-color: var(--color-primary-dark);
     min-height: 50px;
     transition: left .3s ease-in-out;
 }
@@ -134,7 +134,7 @@ font-family: 'Roboto Flex', sans-serif;
 
 .navbar-movil .options-end .option .toggle-option.search {
     width: 350px;
-    background-color: rgba(0, 70, 114, 1);
+    background-color: var(--color-primary-dark);
     padding: 8px !important;
     position: absolute;
     top: 40px;

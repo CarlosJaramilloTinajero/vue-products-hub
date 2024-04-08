@@ -219,7 +219,7 @@
 }
 
 .descriptions a:hover {
-    color: rgba(23, 93, 255, 0.894);
+    color: var(--color-primary-light);
 }
 
 @media screen and (min-width: 500px) {
