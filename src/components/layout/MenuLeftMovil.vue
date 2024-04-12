@@ -66,7 +66,7 @@ const closeMenu = () => {
             </div>
 
             <div class="link" v-show="isLogin" @click="closeMenu">
-                <router-link to="/">Favoritos</router-link>
+                <router-link to="/wishlist">Favoritos</router-link>
             </div>
 
             <div class="link" style="cursor: pointer;" v-show="isLogin" @click="closeMenu">

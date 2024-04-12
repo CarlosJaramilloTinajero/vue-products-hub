@@ -15,7 +15,7 @@ const userModulde = {
     },
     actions: {
         setIsLoginAction({ commit, dispatch }) {
-            const bool = localStorage.getItem('token') && localStorage.getItem('user_name');
+            const bool = (localStorage.getItem('token') && localStorage.getItem('user_name')) !== null;
             if (bool) dispatch('setDataUserAction');
             commit('setIsLogin', bool);
         },

@@ -1,9 +1,13 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, watch, onBeforeMount } from 'vue';
+import { useStore } from 'vuex';
+import ProductWishList from '../../layout/Product/ProductWishList.vue';
+import { addToWishlistAPI, getUserWishlistAPI } from '../../../services/user/wishlist';
+import router from '../../../router';
 
 const cant = ref(1);
 
-defineProps({
+const props = defineProps({
     productView: {
         type: Object,
         default: {}
@@ -33,6 +37,43 @@ const handleChangeCant = e => {
     cant.value = e.target.value.replace(/\D/g, '')
 };
 
+const store = useStore();
+
+const isLogin = computed(() => {
+    return store.state.userModule.isLogin;
+});
+
+const isSelected = ref(false);
+
+const addToWishlist = () => {
+    if (isSelected.value) return;
+    if (!isLogin.value) { router.push('/login'); return; }
+    addToWishlistAPI({
+        data: { product_id: props.productView.id }, funcSuccess: () => {
+            isSelected.value = true;
+        },
+        funcError: (data) => {
+            if (data && data.mgs && data.mgs === 'Este producto ya esta agregado') isSelected.value = true;
+        }
+    })
+}
+
+const getIsSelected = () => {
+    getUserWishlistAPI({
+        funcSuccess: (data) => {
+            if (data.data.some(value => value.product_id == props.productView.id)) { isSelected.value = true; } else { isSelected.value = false; }
+        }
+    });
+};
+
+onBeforeMount(() => {
+    getIsSelected();
+});
+
+watch(() => props.productView, (newValue, oldValue) => {
+    getIsSelected();
+});
+
 </script>
 
 <template>
@@ -45,7 +86,10 @@ const handleChangeCant = e => {
         <button class="add-to-cart">
             <p>Agregar al Carrito</p>
         </button>
-        <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+        <button @click="addToWishlist()" class="add-to-wishlist">
+            <i v-show="!isSelected" class="far fa-heart" />
+            <i v-show="isSelected" style="color: red !important;" class="fa-solid fa-heart" />
+        </button>
     </section>
 </template>
 
@@ -156,7 +200,7 @@ const handleChangeCant = e => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 1;
     opacity: 0;
     transition: opacity .3s ease-in-out, width .3s ease-in-out, height .3s ease-in-out;
     border-radius: 5px;
@@ -168,16 +212,22 @@ const handleChangeCant = e => {
     height: 124%;
 }
 
-.cart-wishlist .add-to-wishlist i {
+.cart-wishlist .add-to-wishlist i,
+.cart-wishlist .add-to-wishlist a svg {
     position: relative;
     z-index: 3;
     color: rgba(0, 0, 0, 0.6);
+    fill: rgba(0, 0, 0, 0.6);
     font-size: 20px;
+    width: 20px;
+    height: 20px;
     transition: color .3s ease-in-out;
 }
 
-.cart-wishlist .add-to-wishlist:hover i {
+.cart-wishlist .add-to-wishlist:hover i,
+.cart-wishlist .add-to-wishlist:hover a svg {
     color: white;
+    fill: white;
 }
 
 @media screen and (max-width: 440px) {
@@ -231,8 +281,11 @@ const handleChangeCant = e => {
         z-index: 1;
     }
 
-    .cart-wishlist .add-to-wishlist i {
+    .cart-wishlist .add-to-wishlist i,
+    .cart-wishlist .add-to-wishlist a svg {
         font-size: 18px;
+        width: 18px;
+        height: 18px;
     }
 
 

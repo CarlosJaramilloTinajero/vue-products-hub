@@ -6,7 +6,7 @@ import Catalogue404 from "../components/status/Catalogue404.vue";
 import ProductView from '../views/ProductView.vue'
 import LoginView from '../views/auth/LoginView.vue'
 import RegisterView from "../views/auth/RegisterView.vue";
-
+import WishListView from "../views/user/WishListView.vue";
 
 const routes = [
     // Home
@@ -23,6 +23,8 @@ const routes = [
     { path: '/login', name: 'login', component: LoginView, meta: { requiresGuest: true } },
     { path: '/register', name: 'register', component: RegisterView, meta: { requiresGuest: true } },
 
+    // User routes
+    { path: '/wishlist', name: 'wishlist', component: WishListView, meta: { requiresAuth: true } },
     // 404
     { path: '/:pathMatch(.*)*', name: 'not-found', component: Catalogue404 }
 ];
@@ -33,7 +35,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
-    
+
     const isAuthenticated = localStorage.getItem('token') && localStorage.getItem('user_name');
 
     if (to.meta.requiresGuest && isAuthenticated) {

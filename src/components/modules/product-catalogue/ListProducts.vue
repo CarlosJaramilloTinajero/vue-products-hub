@@ -1,6 +1,7 @@
 <script setup>
 
 import { randomBoolean, randomNumber } from '../../../helpers';
+import ProductWishList from '../../layout/Product/ProductWishList.vue';
 // import router from '../../../router';
 
 const props = defineProps({
@@ -17,7 +18,7 @@ const props = defineProps({
 <template>
     <!-- Lista de productos -->
     <section class="productsVersions row on-render-products-catalogue">
-        <div v-for="( item, index ) in  products " :key="index" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+        <div v-for="( item, index ) in products " :key="index" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
             style="padding: 0 4px;">
             <section class="productV2Div" style="margin-left: auto; margin-right: auto;">
 
@@ -56,13 +57,7 @@ const props = defineProps({
                                 </div>
 
                                 <div class="wishlist">
-                                    <a>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                                        </svg>
-                                    </a>
+                                    <ProductWishList :product="item" />
                                 </div>
                             </div>
                         </div>
@@ -93,7 +88,7 @@ const props = defineProps({
 
     <!-- Animacion carga -->
     <section class="productsVersions row on-render-products-catalogue-loanding">
-        <div v-for="  index  in  20 " :key="index" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+        <div v-for="  index in 20 " :key="index" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
             style="padding: 0 4px;">
 
             <section class="productV2Div" style="margin-left: auto; margin-right: auto;">

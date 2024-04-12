@@ -154,3 +154,18 @@ input:focus {
     border: 1px rgb(0, 77, 124) solid;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Page view */
+.page-container {
+    width: 95vw;
+    max-width: 1350px;
+    margin: 40px auto;
+}
+
+.page-container .title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    text-align: left;
+    margin: 20px 0;
+    color: rgba(0, 0, 0, 0.9);
+}
