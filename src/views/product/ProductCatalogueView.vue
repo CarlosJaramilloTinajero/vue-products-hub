@@ -1,5 +1,5 @@
 <script setup>
-import ProductCatalogue from '../components/modules/product-catalogue/ProductCatalogue.vue';
+import ProductCatalogue from '../../components/modules/product-catalogue/ProductCatalogue.vue';
 </script>
 
 <template>

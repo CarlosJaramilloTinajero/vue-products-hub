@@ -1,7 +1,7 @@
 <script setup>
 
 import { randomBoolean, randomNumber } from '../../../helpers';
-import ProductWishList from '../../layout/Product/ProductWishList.vue';
+import AddProductWishListSvg from '../../layout/Product/AddProductWishListSvg.vue';
 // import router from '../../../router';
 
 const props = defineProps({
@@ -57,7 +57,7 @@ const props = defineProps({
                                 </div>
 
                                 <div class="wishlist">
-                                    <ProductWishList :product="item" />
+                                    <AddProductWishListSvg :product="item" />
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue';
-import SlideProductsByCategory from '../components/layout/SlideProducts/SlideProductsByCategory.vue';
+import SlideProductsByCategory from '../components/layout/Product/SlideProducts/SlideProductsByCategory.vue';
 import { initSlides, unloadSlides } from '../helpers/splideHelper';
 import { BASE_URL_IMG } from '../constants';
 import bestBrands from '../utils/json/home/best-brands.json';

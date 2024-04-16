@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import CategoryCatalogueView from "../views/CategoryCatalogueView.vue";
-import ProductCatalogueView from "../views/ProductCatalogueView.vue";
+import CategoryCatalogueView from "../views/product/CategoryCatalogueView.vue";
+import ProductCatalogueView from "../views/product/ProductCatalogueView.vue";
 import HomeView from "../views/HomeView.vue";
 import Catalogue404 from "../components/status/Catalogue404.vue";
-import ProductView from '../views/ProductView.vue'
+import ProductView from '../views/product/ProductView.vue'
 import LoginView from '../views/auth/LoginView.vue'
 import RegisterView from "../views/auth/RegisterView.vue";
 import WishListView from "../views/user/WishListView.vue";

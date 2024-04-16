@@ -1,6 +1,6 @@
 <script>
 import { defineComponent } from 'vue';
-import ProductWishList from '../Product/ProductWishList.vue';
+import AddProductWishListSvg from '../../Product/AddProductWishListSvg.vue';
 
 export default defineComponent({
     name: 'ProductSlide',
@@ -13,7 +13,7 @@ export default defineComponent({
         //     isLogin: state => state.userModule.isLogin
         // })
     },
-    components: { ProductWishList },
+    components: { AddProductWishListSvg },
     methods: {
     },
     mounted() {
@@ -70,7 +70,7 @@ export default defineComponent({
                         </div>
 
                         <div class="wishlist">
-                            <ProductWishList :product="product" />
+                            <AddProductWishListSvg :product="product" />
                         </div>
                     </div>
                 </div>

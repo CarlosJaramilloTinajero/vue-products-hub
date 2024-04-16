@@ -1,12 +1,12 @@
 <script>
 import { defineComponent, watch, onMounted, ref, computed } from 'vue';
-import router from '../router';
-import { getProductBySlugAPI } from '../services/products';
-import SlideProductsByCategory from '../components/layout/SlideProducts/SlideProductsByCategory.vue';
-import ProductCarrousel from '../components/modules/product-view/ProductCarrousel.vue';
-import ProductData from '../components/modules/product-view/ProductData.vue';
-import AddToCartWishlist from '../components/modules/product-view/AddToCartWishlist.vue';
-import { initSlides, unloadSlides } from '../helpers/splideHelper';
+import router from '../../router';
+import { getProductBySlugAPI } from '../../services/products';
+import SlideProductsByCategory from '../../components/layout/Product/SlideProducts/SlideProductsByCategory.vue';
+import ProductCarrousel from '../../components/modules/product-view/ProductCarrousel.vue';
+import ProductData from '../../components/modules/product-view/ProductData.vue';
+import AddToCartWishlist from '../../components/modules/product-view/AddToCartWishlist.vue';
+import { initSlides, unloadSlides } from '../../helpers/splideHelper';
 
 export default defineComponent({
     name: 'ProductView',
@@ -89,50 +89,4 @@ export default defineComponent({
     </section>
 </template>
 
-<style scoped>
-/* 
-font-family: 'Nunito', sans-serif;
-font-family: 'Plus Jakarta Sans', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Flex', sans-serif;
-*/
-
-.related-products {
-    width: 90vw;
-    max-width: 1200px;
-    margin: 80px auto;
-}
-
-.related-products .title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 22px;
-    margin-bottom: 30px;
-}
-
-.product-view-container {
-    width: 90vw;
-    max-width: 1200px;
-    margin: 30px auto;
-}
-
-.product-view-container hr {
-    width: 100%;
-}
-
-.product-view-container .col-img-product {
-    padding-left: 0;
-    padding-right: 0;
-    position: relative;
-}
-
-@media screen and (max-width: 992px) {
-    .related-products .title {
-        font-size: 18px;
-    }
-
-    .product-view-container .col-data-product {
-        width: 95%;
-        margin: 0 auto;
-    }
-}
-</style>
+<style scoped></style>

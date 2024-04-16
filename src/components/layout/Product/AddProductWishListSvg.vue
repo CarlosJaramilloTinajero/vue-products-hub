@@ -5,7 +5,7 @@ import router from '../../../router';
 import { addToWishlistAPI } from '../../../services/user/wishlist';
 
 export default defineComponent({
-    name: 'ProductWishList',
+    name: 'AddProductWishListSvg',
     props: {
         product: {
             type: Object,
@@ -26,7 +26,8 @@ export default defineComponent({
             if (isSelected.value) return;
             if (!isLogin.value) { router.push('/login'); return; }
             addToWishlistAPI({
-                data: { product_id: props.product.id }, funcSuccess: () => {
+                data: { product_id: props.product.id }, 
+                funcSuccess: () => {
                     isSelected.value = true;
                 },
                 funcError: (data) => {

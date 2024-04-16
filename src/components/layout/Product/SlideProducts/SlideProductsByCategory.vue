@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { getProductsByAPI } from '../../../services/APIService';
-import { initSlides, unloadSlides } from '../../../helpers/splideHelper';
+import { getProductsByAPI } from '../../../../services/APIService';
+import { initSlides, unloadSlides } from '../../../../helpers/splideHelper';
 import ProductSlide from './ProductSlide.vue';
 import ProductSlideAnimation from './ProductSlideAnimation.vue'
 

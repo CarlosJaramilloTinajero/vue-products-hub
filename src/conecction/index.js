@@ -6,17 +6,12 @@ class conecction {
     constructor(token) {
         this.token = token;
         this.axiosCon = axios.create({
-            baseURL: APP_DEBUG ? 'http://127.0.0.1:8000/api/' : 'https://api.carlosjaramillo.beauty/api/'
-            // baseURL: 'https://api.carlosjaramillo.beauty/api/'
+            // baseURL: APP_DEBUG ? 'http://127.0.0.1:8000/api/' : 'https://api.carlosjaramillo.beauty/api/'
+            baseURL: 'https://api.carlosjaramillo.beauty/api/'
         });
     }
 
     async loadData({ publicURL = true, method = '', url = '', data = {}, token = false, authorization = false, errorResponse = false }) {
-
-        // if (token && (!this.token || this.token !== localStorage.getItem('token'))) {
-        //     this.token = localStorage.getItem('token');
-        // }
-
         const header = {};
         if (token) header['token'] = this.token;
         if (authorization && localStorage.getItem('token')) header['Authorization'] = localStorage.getItem('token');
