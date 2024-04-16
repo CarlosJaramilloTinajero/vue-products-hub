@@ -6,8 +6,8 @@ class conecction {
     constructor(token) {
         this.token = token;
         this.axiosCon = axios.create({
-            // baseURL: APP_DEBUG ? 'http://127.0.0.1:8000/api/' : 'https://api.carlosjaramillo.beauty/api/'
-            baseURL: 'https://api.carlosjaramillo.beauty/api/'
+            baseURL: APP_DEBUG ? 'http://127.0.0.1:8000/api/' : 'https://api.carlosjaramillo.beauty/api/'
+            // baseURL: 'https://api.carlosjaramillo.beauty/api/'
         });
     }
 

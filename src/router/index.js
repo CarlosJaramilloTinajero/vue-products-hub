@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import CategoryCatalogueView from "../views/product/CategoryCatalogueView.vue";
 import ProductCatalogueView from "../views/product/ProductCatalogueView.vue";
 import HomeView from "../views/HomeView.vue";
-import Catalogue404 from "../components/status/Catalogue404.vue";
+import PageNotFound from "../components/status/PageNotFound.vue";
 import ProductView from '../views/product/ProductView.vue'
 import LoginView from '../views/auth/LoginView.vue'
 import RegisterView from "../views/auth/RegisterView.vue";
@@ -25,8 +25,9 @@ const routes = [
 
     // User routes
     { path: '/wishlist', name: 'wishlist', component: WishListView, meta: { requiresAuth: true } },
+    
     // 404
-    { path: '/:pathMatch(.*)*', name: 'not-found', component: Catalogue404 }
+    { path: '/:pathMatch(.*)*', name: 'not-found', component: PageNotFound }
 ];
 
 const router = createRouter({
@@ -34,14 +35,17 @@ const router = createRouter({
     routes
 });
 
+// Guards
 router.beforeEach((to, from) => {
 
     const isAuthenticated = localStorage.getItem('token') && localStorage.getItem('user_name');
 
+    // guest
     if (to.meta.requiresGuest && isAuthenticated) {
         return { name: 'home' };
     }
 
+    // auth
     if (to.meta.requiresAuth && !isAuthenticated) {
         return { name: 'login' };
     }

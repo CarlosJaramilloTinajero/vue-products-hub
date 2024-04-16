@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watchEffect, onMounted, computed } from 'vue';
 import router from './router';
-import Header from './components/layout/Header.vue';
+import Header from './components/layout/header/Header.vue';
 import { useStore } from 'vuex';
 import { animationInitApp } from './helpers/animationHelper';
 import Footer from './components/layout/Footer.vue';

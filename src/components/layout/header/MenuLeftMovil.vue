@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { getCategoriesByAPI } from '../../services/APIService';
+import { getCategoriesByAPI } from '../../../services/APIService';
 import { useStore } from 'vuex';
-import router from '../../router';
+import router from '../../../router';
 
 const store = useStore();
 

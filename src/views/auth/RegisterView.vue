@@ -4,7 +4,8 @@ import { mapActions } from 'vuex';
 import { registerAPI } from '../../services/auth';
 import { deepClone } from '../../helpers';
 import router from '../../router';
-import { BASE_URL_IMG } from '../../constants';
+import { APP_DEBUG, BASE_URL_IMG } from '../../constants';
+import { notify } from '../../notify';
 
 export default defineComponent({
     name: 'RegisterView',
@@ -28,11 +29,14 @@ export default defineComponent({
                 data: deepClone(this.userFom),
                 showNotify: true,
                 funcSuccess: (response) => {
-                    if (response.data) response = response.data;
+                    if (APP_DEBUG) response = response.data;
                     localStorage.setItem('token', response.token_type + ' ' + response.access_token);
                     localStorage.setItem('user_name', response.user_name);
                     router.push('/');
                     this.setIsLoginAction();
+                },
+                funcError: data => { 
+                    if(data.msg) notify(data.msg, 'error');
                 }
             })
         },
