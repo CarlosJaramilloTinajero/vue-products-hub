@@ -1,12 +1,12 @@
 import axios from "axios";
 import { notify } from "../notify";
-import { APP_DEBUG } from "../constants";
+import { URL_API_PROD, URL_API_CONTEXT } from "../constants";
 
 class conecction {
     constructor(token) {
         this.token = token;
         this.axiosCon = axios.create({
-            baseURL: APP_DEBUG ? 'http://127.0.0.1:8000/api/' : 'https://api.carlosjaramillo.beauty/api/'
+            baseURL: URL_API_CONTEXT
             // baseURL: 'https://api.carlosjaramillo.beauty/api/'
         });
     }
