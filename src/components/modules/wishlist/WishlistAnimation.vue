@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <div class="product">
+    <div class="product animation">
         <section class="img-container">
             <div class="loanding-animation"></div>
         </section>

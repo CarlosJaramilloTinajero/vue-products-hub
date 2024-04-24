@@ -13,6 +13,10 @@
     gap: 15px;
 }
 
+.wishlist-container .product.animation {
+    width: max-content !important;
+}
+
 .wishlist-container .product .img-container {
     width: 180px !important;
     height: 160px !important;
