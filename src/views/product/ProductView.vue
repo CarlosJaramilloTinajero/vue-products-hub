@@ -7,12 +7,14 @@ import ProductCarrousel from '../../components/modules/product-view/ProductCarro
 import ProductData from '../../components/modules/product-view/ProductData.vue';
 import AddToCartWishlist from '../../components/modules/product-view/AddToCartWishlist.vue';
 import { initSlides, unloadSlides } from '../../helpers/splideHelper';
+import PageNotFound from '../../components/status/PageNotFound.vue';
 
 export default defineComponent({
     name: 'ProductView',
     setup() {
         const slugProduct = ref(null);
         const productView = ref(null);
+        const status404 = ref(false);
 
         const paramsURL = computed(() => {
             return router.currentRoute.value.params;
@@ -25,6 +27,7 @@ export default defineComponent({
 
         const initiProductView = () => {
             productView.value = null;
+            status404.value = false;
         };
 
         const getProductBySlug = () => {
@@ -34,7 +37,9 @@ export default defineComponent({
                 slug: slugProduct.value,
                 funcSuccess: data => {
                     productView.value = data.data;
-                    // console.log(data);
+                },
+                funcError: () => {
+                    status404.value = true;
                 }
             });
         };
@@ -64,29 +69,32 @@ export default defineComponent({
         watch(() => router.currentRoute.value.params, (newValue, oldValue) => {
             handleWatchChange(newValue);
         });
-        return { productView };
+        return { productView, status404 };
     },
-    components: { SlideProductsByCategory, ProductCarrousel, ProductData, AddToCartWishlist }
+    components: { SlideProductsByCategory, ProductCarrousel, ProductData, AddToCartWishlist, PageNotFound }
 })
 </script>
 
 <template>
-    <section class="product-view-container">
-        <div class="row row-cols-1 row-cols-lg-2">
-            <div class="col col-img-product mb-4 mb-lg-0">
-                <ProductCarrousel :product-view="productView" />
+    <PageNotFound v-show="productView === null && status404" />
+    <div v-show="!status404">
+        <section class="product-view-container">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col col-img-product mb-4 mb-lg-0">
+                    <ProductCarrousel :product-view="productView" />
+                </div>
+                <div class="col col-data-product">
+                    <ProductData :product-view="productView" />
+                    <AddToCartWishlist :product-view="productView" />
+                </div>
             </div>
-            <div class="col col-data-product">
-                <ProductData :product-view="productView" />
-                <AddToCartWishlist :product-view="productView" />
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="related-products" v-if="productView && productView.brand">
-        <SlideProductsByCategory category-slug="random-products" :brands="[productView?.brand?.name]"
-            title="Productos relacionados" />
-    </section>
+        <section class="related-products" v-if="productView && productView.brand">
+            <SlideProductsByCategory category-slug="random-products" :brands="[productView?.brand?.name]"
+                title="Productos relacionados" />
+        </section>
+    </div>
 </template>
 
 <style scoped></style>
