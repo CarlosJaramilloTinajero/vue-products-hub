@@ -1,12 +1,39 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref, onBeforeMount } from 'vue';
 import SlideProductsByCategory from '../components/layout/Product/SlideProducts/SlideProductsByCategory.vue';
 import { initSlides, unloadSlides } from '../helpers/splideHelper';
 import { BASE_URL_IMG } from '../constants';
 import bestBrands from '../utils/json/home/best-brands.json';
 import payments from '../utils/json/home/payments.json'
+import { getAllBannersAPI } from '../services/banners';
 
-onMounted(() => {
+const banenrs = ref({});
+
+const getBanners = () => {
+    getAllBannersAPI({
+        funcSuccess: (respose) => {
+            const data = respose.data || respose;
+
+            // Separamos los banners
+            banenrs.value['pc'] = data.filter(value => value.device == 'pc');
+            banenrs.value['movil'] = data.filter(value => value.device == 'movil');
+            banenrs.value.pc = Object.groupBy(banenrs.value.pc, ({ section }) => section);
+            banenrs.value.movil = Object.groupBy(banenrs.value.movil, ({ section }) => section);
+
+            console.log(banenrs.value);
+
+            let idT = setTimeout(() => {
+                uploadSlides();
+                window.clearTimeout(idT);
+            }, 500);
+        },
+        funcError: () => {
+
+        }
+    });
+};
+
+const uploadSlides = () => {
     unloadSlides();
     initSlides();
     window.scroll(0, 0);
@@ -18,6 +45,13 @@ onMounted(() => {
             offset: 160
         });
     }, 2000);
+};
+
+onBeforeMount(() => {
+    getBanners();
+});
+
+onMounted(() => {
 });
 
 </script>
@@ -27,6 +61,7 @@ onMounted(() => {
 
         <!-- Slide principal computadora -->
         <section class=" splide SlideSplide d-none d-md-block"
+            v-if="banenrs.pc && banenrs.pc['PC TOP Slide'] && banenrs.pc['PC TOP Slide'].length > 0"
             data-splide='{"type":"loop","perPage":1,"padding": "12rem"}' aria-label="Splide Basic HTML Example">
             <div class="splide__arrows">
                 <button class="splide__arrow splide__arrow--prev" style="opacity: 0;">
@@ -39,28 +74,18 @@ onMounted(() => {
             <ul class="splide__pagination splide__pagination--ltr" style="opacity: 0;"></ul>
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide" style="padding-left: 2%; padding-right: 2%;">
-                        <img class="imageSlide" :src="`${BASE_URL_IMG}/assets/img/banners/banner-pc-1.webp`"
-                            alt="Banner PC">
-                    </li>
-                    <li class="splide__slide" style="padding-left: 2%; padding-right: 2%;">
-                        <img class="imageSlide" :src="`${BASE_URL_IMG}/assets/img/banners/banner-pc-2.webp`"
-                            alt="Banner PC">
-                    </li>
-                    <li class="splide__slide" style="padding-left: 2%; padding-right: 2%;">
-                        <img class="imageSlide" :src="`${BASE_URL_IMG}/assets/img/banners/banner-pc-3.webp`"
-                            alt="Banner PC">
-                    </li>
-                    <li class="splide__slide" style="padding-left: 2%; padding-right: 2%;">
-                        <img class="imageSlide" :src="`${BASE_URL_IMG}/assets/img/banners/banner-pc-4.webp`"
-                            alt="Banner PC">
+
+                    <li v-for="(item, index) in banenrs.pc['PC TOP Slide']" :key="item.id" class="splide__slide"
+                        style="padding-left: 2%; padding-right: 2%;">
+                        <img class="imageSlide" :src="item.image.path" alt="Banner PC">
                     </li>
                 </ul>
             </div>
         </section>
 
         <!-- Slide principal movil -->
-        <section class=" splide SlideSplide d-md-none" aria-label="Splide Basic HTML Example">
+        <section class=" splide SlideSplide d-md-none" aria-label="Splide Basic HTML Example"
+            v-if="banenrs.movil && banenrs.movil['Movil TOP Slide'] && banenrs.movil['Movil TOP Slide'].length > 0">
             <div class="splide__arrows">
                 <button class="splide__arrow splide__arrow--prev" style="opacity: 0;">
                     Prev
@@ -72,37 +97,33 @@ onMounted(() => {
             <ul class="splide__pagination splide__pagination--ltr" style="opacity: 0;"></ul>
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide">
-                        <img class="imageSlide" :src="`${BASE_URL_IMG}/assets/img/banners/banner-pc-3.webp`" alt="">
-                    </li>
 
-                    <li class="splide__slide">
-                        <img class="imageSlide" :src="`${BASE_URL_IMG}/assets/img/banners/banner-pc-2.webp`" alt="">
+                    <li class="splide__slide" v-for="(item, index) in banenrs.movil['Movil TOP Slide']"
+                        v-bind:key="item.id">
+                        <img class="imageSlide" :src="item.image.path" alt="">
                     </li>
                 </ul>
             </div>
         </section>
 
         <!-- Banners inicio computadora -->
-        <div class=" bannersInicio d-none d-lg-block">
+        <div class=" bannersInicio d-none d-lg-block" v-if="banenrs.pc">
             <div class="row">
-                <div class="col-12 mb-4" data-aos="fade-down">
+                <div class="col-12 mb-4" data-aos="fade-down" v-if="banenrs.pc['Banner TOP Down']">
                     <figure class="banner">
-                        <img class="imagenBanner" :src="`${BASE_URL_IMG}/assets/img/banners/banner-top-dow-pc.webp`"
+                        <img class="imagenBanner" :src="banenrs.pc['Banner TOP Down'][0].image.path"
                             alt="Banner principal">
                     </figure>
                 </div>
-                <div class="col-6" data-aos="fade-right">
+                <div class="col-6" data-aos="fade-right" v-if="banenrs.pc['Banner Top Down Left']">
                     <figure class="banner">
-                        <img class="imagenBanner"
-                            :src="`${BASE_URL_IMG}/assets/img/banners/banner-top-down-left-pc.webp`"
+                        <img class="imagenBanner" :src="banenrs.pc['Banner Top Down Left'][0].image.path"
                             alt="Banner secundario izquierdo">
                     </figure>
                 </div>
-                <div class="col-6" data-aos="fade-left">
+                <div class="col-6" data-aos="fade-left" v-if="banenrs.pc['Banner Top Down Right']">
                     <figure class="banner">
-                        <img class="imagenBanner"
-                            :src="`${BASE_URL_IMG}/assets/img/banners/banner-top-down-right-pc.webp`"
+                        <img class="imagenBanner" :src="banenrs.pc['Banner Top Down Right'][0].image.path"
                             alt="Banner secundario derecho">
                     </figure>
                 </div>
@@ -110,7 +131,8 @@ onMounted(() => {
         </div>
 
         <!-- Banners inicio movil -->
-        <div class=" d-lg-none">
+        <div class=" d-lg-none"
+            v-if="banenrs.movil && banenrs.movil['Banner TOP Down Movil'] && banenrs.movil['Banner TOP Down Movil'].length > 0">
             <section class="splide bannersInicio" aria-label="Splide Basic HTML Example">
                 <div class="splide__arrows">
                     <button class="splide__arrow splide__arrow--prev" style="opacity: 0;">
@@ -125,13 +147,9 @@ onMounted(() => {
 
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide">
-                            <img class="imageSlide"
-                                :src="`${BASE_URL_IMG}/assets/img/banners/banner-top-down-movil-1.webp`" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img class="imageSlide"
-                                :src="`${BASE_URL_IMG}/assets/img/banners/banner-top-down-movil-2.webp`" alt="">
+                        <li class="splide__slide" v-for="(item, index) in banenrs.movil['Banner TOP Down Movil']"
+                            :key="item.id">
+                            <img class="imageSlide" :src="item.image.path" alt="">
                         </li>
                     </ul>
                 </div>
@@ -286,33 +304,32 @@ onMounted(() => {
         </div>
 
         <!-- Banner abajo computadora -->
-        <section class=" bannersInicio d-none d-lg-block">
+        <section class=" bannersInicio d-none d-lg-block"
+            v-if="banenrs.pc && banenrs.pc['Banner Down'] && banenrs.pc['Banner Down'].length > 0">
             <div class="bannerSection mb-4">
-                <div class="banner bannerDown-G" data-aos="fade-right">
-                    <img class="imagenBanner bannerHover"
-                        :src="`${BASE_URL_IMG}/assets/img/banners/banner-down-1-pc.webp`" alt="">
+
+                <div class="banner bannerDown-G" data-aos="fade-right" v-if="banenrs.pc['Banner Down'][0]">
+                    <img class="imagenBanner bannerHover" :src="banenrs.pc['Banner Down'][0].image.path" alt="">
                 </div>
-                <div class="banner bannerDown-C" data-aos="fade-left">
-                    <img class="imagenBanner bannerHover"
-                        :src="`${BASE_URL_IMG}/assets/img/banners/banner-down-2-pc.webp`" alt="">
+                <div class="banner bannerDown-C" data-aos="fade-left" v-if="banenrs.pc['Banner Down'][1]">
+                    <img class="imagenBanner bannerHover" :src="banenrs.pc['Banner Down'][1].image.path" alt="">
                 </div>
             </div>
             <div class="bannerSection">
-                <div class="banner bannerDown-C" data-aos="fade-right">
-                    <img class="imagenBanner bannerHover"
-                        :src="`${BASE_URL_IMG}/assets/img/banners/banner-down-2-pc.webp`" alt="">
+                <div class="banner bannerDown-C" data-aos="fade-right" v-if="banenrs.pc['Banner Down'][1]">
+                    <img class="imagenBanner bannerHover" :src="banenrs.pc['Banner Down'][1].image.path" alt="">
                 </div>
-                <div class="banner bannerDown-G" data-aos="fade-left">
-                    <img class="imagenBanner bannerHover"
-                        :src="`${BASE_URL_IMG}/assets/img/banners/banner-down-1-pc.webp`" alt="">
+                <div class="banner bannerDown-G" data-aos="fade-left" v-if="banenrs.pc['Banner Down'][0]">
+                    <img class="imagenBanner bannerHover" :src="banenrs.pc['Banner Down'][0].image.path" alt="">
                 </div>
             </div>
         </section>
 
         <!-- Suscripcion computadora-->
-        <section class=" suscriptionDiv mb-5 d-none d-lg-block">
+        <section class=" suscriptionDiv mb-5 d-none d-lg-block"
+            v-if="banenrs.pc && banenrs.pc['Banner suscription down'][0]">
             <picture>
-                <img :src="`${BASE_URL_IMG}/assets/img/banners/banner-suscripcion-pc.jpg`" alt="">
+                <img :src="banenrs.pc['Banner suscription down'][0].image.path" alt="">
             </picture>
             <div class="divForm">
                 <form @submit.prevent="() => { }">
